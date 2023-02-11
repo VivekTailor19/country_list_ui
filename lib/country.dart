@@ -21,6 +21,11 @@ class _CountryState extends State<Country> {
     "ISRAIL",
     "NEPAL",
     "MALAYSIA",
+    "SWITZERLAND",
+    "DENMARK",
+    "SPAIN",
+    "SINGAPORE",
+    "MEXICO",
   ];
   List flag = [
     "🇮🇳 ",
@@ -34,19 +39,30 @@ class _CountryState extends State<Country> {
     "🇮🇱 ",
     "🇳🇵 ",
     "🇲🇾 ",
+    "🇨🇭 ",
+    "🇩🇰 ",
+    "🇪🇸 ",
+    "🇸🇬 ",
+    "🇲🇽 ",
   ];
   List col = [
-    Colors.yellow,
-    Colors.green,
-    Colors.yellow,
-    Colors.green,
-    Colors.yellow,
-    Colors.green,
-    Colors.yellow,
-    Colors.green,
-    Colors.yellow,
-    Colors.green,
-    Colors.yellow,
+    [Colors.lightBlueAccent, Colors.pinkAccent],
+    [Colors.black12, Colors.tealAccent],
+    [Colors.yellow, Colors.amber],
+    [Colors.lightBlueAccent, Colors.pinkAccent],
+    [Colors.black12, Colors.tealAccent],
+    [Colors.yellow, Colors.amber],
+    [Colors.lightBlueAccent, Colors.pinkAccent],
+    [Colors.black12, Colors.tealAccent],
+    [Colors.yellow, Colors.amber],
+    [Colors.lightBlueAccent, Colors.pinkAccent],
+    [Colors.black12, Colors.tealAccent],
+    [Colors.yellow, Colors.amber],
+    [Colors.lightBlueAccent, Colors.pinkAccent],
+    [Colors.black12, Colors.tealAccent],
+    [Colors.yellow, Colors.amber],
+    [Colors.lightBlueAccent, Colors.pinkAccent],
+
   ];
 
   @override
@@ -56,7 +72,7 @@ class _CountryState extends State<Country> {
         backgroundColor: Colors.brown,
         leading: Icon(
           Icons.list_alt_sharp,
-          size: 25,
+          size: 30,
           color: Colors.orange,
         ),
         title: Text(
@@ -67,23 +83,34 @@ class _CountryState extends State<Country> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children:                                                          //i++   0    0
-              flag.map((e) => listWidget(e,country[i], col[i++])).toList(), // ++i   0    1
-         ),
+          children: //i++   0    0
+              flag
+                  .map((e) => listWidget(e, country[i], col[i++])) //col[i++]
+                  .toList(), // ++i   0    1
+        ),
       ),
     );
   }
 
-  Widget listWidget(dynamic flag, dynamic country, Color col) {
-    return Container(
-      height: 40,
-      width: double.infinity,
-      color: col,
-      alignment: Alignment.center,
-      child: Text(
-        "$flag $country",
-        style: TextStyle(fontSize: 20, color: Colors.amber),
-      ),
+  Widget listWidget(dynamic flag, dynamic country, List<Color> c1) {
+    return  Column(
+      children: [
+        SizedBox(height: 8,),
+        Container(
+
+            height: 40,
+            width: double.infinity,
+
+            decoration: BoxDecoration(gradient: LinearGradient(colors: c1),borderRadius: BorderRadius.circular(10)),
+            //color: col,
+            alignment: Alignment.center,
+            child: Text(
+              "$flag $country",
+              style: TextStyle(fontSize: 35, color: Colors.white),
+
+          ),
+        ),
+      ],
     );
   }
 }
